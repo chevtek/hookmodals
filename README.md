@@ -2,7 +2,8 @@
 
 The future of modals in React.
 
-A clean separation of logic means your components don't even have to know they are modals!
+- No need to wrap the root of your entire app in some kind of provider.
+- A clean separation of logic means your components don't even have to know they are modals!
 
 ## How to install
 
@@ -18,7 +19,7 @@ This module is written in TypeScript and comes with type declarations already.
 
 First pull in the `useModalProvider` hook and give it an object whose keys are the names of your modals. Then assign each modal a resolver function that will return a component you would like to turn into a modal.
 
-The hook will provide you with a `ModalProvider` component that you can wrap your app components with so any component in your app can easily use your modal controllers.
+The hook will provide you with a `ModalContainer` component that you can place anywhere you wish. It provides a place for active modals to render themselves.
 
 > Note: You will still need to style your modal components to make them appear over the top of your page. I recommend something like [Bootstrap Modals](https://getbootstrap.com/docs/4.0/components/modal/).
 
@@ -34,9 +35,8 @@ const modals = {
 const MyApp = () => {
   const ModalContainer = useModalProvider(modals);
   return (
-    <ModalProvider>
-      <Home />
-    </ModalProvider>
+    <Home />
+    <ModalContainer />
   )
 };
 ```
