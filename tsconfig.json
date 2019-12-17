@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "module": "CommonJS",
+    "module": "ESNext",
     "target": "es5",
     "lib": [
       "dom",
