@@ -1,23 +1,15 @@
-import { Renderer } from "../interfaces";
+import { Renderer } from ".";
 
-export interface Modals {
-  [key: string]: Modal
+export interface IModalControllers {
+  [key: string]: IModalController;
 }
 
-export interface Modal {
-  open: (...args: any[]) => Promise<void>
-  close: (err?: Error) => void
-  isVisible: boolean,
-  render: Renderer,
-  options?: {
-    [key: string]: any
-  },
-  _promise?: {
-    resolve: () => void
-    reject: (err?: Error) => void
-  }
-}
-
-export interface Visible {
-  [key: string]: boolean
+export interface IModalController {
+  options?: any;
+  isActive: boolean;
+  render: Renderer;
+  onUpdate: () => void;
+  open<T>(options?: any): Promise<T>;
+  close(result?: any): void;
+  error(err?: any): void;
 }

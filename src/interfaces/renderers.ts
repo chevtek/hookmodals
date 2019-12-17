@@ -1,7 +1,7 @@
-export interface Renderers {
-  [key: string]: Renderer
+import { IModalController, IModalControllers } from ".";
+
+export interface IRenderers {
+  [key: string]: Renderer;
 }
 
-export interface Renderer {
-  (...args: any[]): any
-}
+export type Renderer = (options: any, modal: IModalController, modals: IModalControllers) => any;

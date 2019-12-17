@@ -1,11 +1,13 @@
 {
-  "name": "hookmodals",
+  "name": "@chevtek/hookmodals",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf ./dist && tsc",
+    "lint": "tslint --project tsconfig.json",
+    "test": "jest",
+    "prepare": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
@@ -18,10 +20,12 @@
   },
   "homepage": "https://github.com/chevtek/hookmodals#readme",
   "devDependencies": {
+    "jest": "^24.9.0",
     "typescript": "^3.7.3"
   },
   "dependencies": {
     "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
