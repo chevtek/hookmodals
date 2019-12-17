@@ -34,10 +34,13 @@ const modals = {
 
 const MyApp = () => {
   const ModalContainer = useModalProvider(modals);
+
   return (
-    <Home />
-    <ModalContainer />
-  )
+    <div>
+      <Home />
+      <ModalContainer />
+    </div>
+  );
 };
 ```
 
@@ -115,7 +118,7 @@ const modals = {
 const Login = ({ close }) => {
   return (
     <button onClick={close}>Close Me</button>
-  )
+  );
 };
 ```
 
@@ -154,7 +157,7 @@ const WizardStep2 = ({ close, next, prev }) => {
   const prevClick = () => {
     close();
     prev();
-  }
+  };
 
   return (
     <div>
